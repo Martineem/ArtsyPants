@@ -1,4 +1,4 @@
-# artsypants
+# ArtsyPants
 
 A simple project delivered as a first assignment in a web development course. 
 
