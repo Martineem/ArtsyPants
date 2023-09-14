@@ -1,0 +1,706 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta http-equiv="X-UA-Compatible" content="ie=edge">
+        <title>Mitt abstrakte bilde</title>
+        <link rel="stylesheet" href="style.css">
+        <link rel="icon" href="purpleCloud.png">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    </head>
+    <body>
+        <div class="wrapper">
+            <header class="header">
+                <img id="headerImg"src="header.png" alt="Header">
+            </header>
+
+            <aside class="aside">
+                <div id="asideDiv">
+                    <h2>Om ArtsyPants</h2>
+                    <p>
+                       ArtsyPants er et ordspill på "smarty pants" – selv om ArtsyPants ikke nødvendigvis vil klassifisere seg selv som en "know-it-all"
+                       innenfor kunst (snarere tvert i mot). Kunstneren er (tydelig) glad i lyse pastellfarger, spesielt i nyanser
+                       av lilla og rosa. I disse to utstilte kunstverkene prøver ArtsyPants å gjenskape et kjent type landskap, men med litt kreativ frihet 
+                       innenfor valg av farger. I tillegg vil ArtsyPants her gi kunstnytere (deg) en mulighet til å oppfylle drømmen
+                       om å kunne leke med jordas naturlige lysbryter:)
+                    </p>
+                </div>
+            </aside>
+
+            <main class="main">
+                <h1>Mitt abstrakte bilde</h1>
+                <p>Prøv å trykke på solen/månen eller fjellene!</p>
+                <div class="artWrapper">
+                    <div id="outsideCanvas" widht="500">
+                        <h2>Canvas</h2>
+                        <canvas id="myCanvas" width="500" height="300"></canvas>
+                    </div>
+                    <div style="position: relative;">
+                        <div id="outsideSVG" width="500">
+                            <h2>SVG</h2>
+                            <svg id="mySVG" width="500" height="300">
+                                <style type="text/css">
+                                    .cloud0{fill: white; stroke: lavender;}
+                                    .cloud1{fill: #faf2ff; stroke: lavender;}
+                                    .cloud2{fill: white; stroke: lavender;}
+                                </style>
+                                <filter id="sunshine" x="-50%" y="-50%" width="200%" height="200%">
+                                    <feDropShadow dx="0" dy="0" stdDeviation="15"
+                                    flood-color="#fcfaac"/>                                  
+                                </filter>
+                                <filter id="moonshine" x="-50%" y="-50%" width="200%" height="200%">
+                                    <feDropShadow dx="0" dy="0" stdDeviation="15"
+                                    flood-color="#dee2ff"/>                                  
+                                </filter>
+                                <rect id="backgroundSVG" width="500" height="300" fill="lavender" />
+                                <svg id="starsSVG">
+                                    <filter id="glow" x="-400%" y="-400%" width="1000%" height="1000%">
+                                        <feDropShadow dx="0" dy="0" stdDeviation="3"
+                                        flood-color="white"/>                                  
+                                    </filter>
+                                </svg>
+                                <circle id="sunMoonSVG" cx="15" cy="15" r="50" stroke="#fcfaac" stroke-width="1" fill="#fcfaac" style="cursor:pointer;filter:url(#sunshine);"/>
+                                <rect id="mountain1" x="150" y="100" width="400" height="400" fill="#5a5a63" transform="rotate(45)" style="cursor:pointer;"/>
+                                <rect id="mountain2" x="300" y="-180" width="400" height="400" fill="#9b9ba8" transform="rotate(45)" style="cursor:pointer;"/>
+                                <rect id="mountain3" x="450" y="-150" width="400" height="400" fill="#5a5a63" transform="rotate(45)" style="cursor:pointer;"/>
+
+                                <path class="cloud0" d="M30,90c-2.17-2.61-3.74-4.76-5.57-6.64c-5-5.14-6.11-19.07-0.79-25.33c3.61-4.26,7.8-7.72,12.84-10.12
+                                                        c9.81-4.68,20.01-7.68,30.89-9.06c8.44-1.07,16.83-1.18,25.07-0.13c12.64,1.61,24.73,5.32,34.28,14.59
+                                                        c0.92,0.9,2.14,1.49,3.87,2.66c0.2-2.46,0.5-4.09,0.45-5.71c-0.32-11.28,6.19-18.18,15.01-23.67c10.76-6.71,22.72-5.85,34.49-5.14
+                                                        c10.87,0.65,21.01,4.46,30.97,8.77c14.39,6.23,27.13,15.04,39.49,24.49c1.93,1.48,3.61,1.46,5.62,0.26
+                                                        c7.68-4.6,15.61-8.56,24.31-11.04c10.04-2.87,20.24-3.4,30.44-2.29c11.95,1.31,21.81,12.56,23.49,23.11
+                                                        c1.95,12.28,1.15,24.27-1.86,36.23c-0.07,0.27-0.11,0.55-0.17,0.82c-1.01,4.73-0.71,5.03,3.95,5.74
+                                                        c8.88,1.36,17.63,3.59,25.46,7.96c8.81,4.92,11.43,13.13,5.03,21.77c-5.43,7.33-13.13,11.72-20.99,15.84
+                                                        c-10.28,5.39-21.26,8.88-32.6,11.11c-8.92,1.76-17.94,3.06-26.93,4.46c-14.66,2.28-29.41,0.98-44.11,0.87
+                                                        c-5.56-0.04-10.58,1.15-15.74,2.93c-8.78,3.03-17.63,5.97-26.63,8.24c-9.08,2.29-18.33,4.08-27.6,5.45
+                                                        c-11.82,1.74-23.79,2.17-35.69,1.12c-7-0.62-14.15-1.37-20.47-4.97c-4.38-2.5-8.19-5.54-8.7-11.18c-0.06-0.62-1.46-1.67-2.16-1.6
+                                                        c-4.72,0.44-9.42,1.13-14.13,1.74c-2.02,0.26-4.05,0.58-6.08,0.72c-4.55,0.31-9.11,0.77-13.66,0.74
+                                                        c-7.16-0.06-14.35-0.13-21.47-0.85c-6.45-0.66-12.84-2.1-19.21-3.37c-10.2-2.04-19.87-5.63-28.86-10.83
+                                                        c-8.97-5.19-17.47-11.28-21.65-21.07c-3.4-7.98-3.38-16.36,2.51-23.7c5.63-7.02,12.98-11.71,21.29-14.81
+                                                        c6.6-2.46,13.4-4.4,20.12-6.55C26,91,28,91,30,90z"/>
+                                <path class="cloud1" d="M150,130c-2.17-2.61-3.74-4.76-5.57-6.64c-5-5.14-6.11-19.07-0.79-25.33c3.61-4.26,7.8-7.72,12.84-10.12
+                                                        c9.81-4.68,20.01-7.68,30.89-9.06c8.44-1.07,16.83-1.18,25.07-0.13c12.64,1.61,24.73,5.32,34.28,14.59
+                                                        c0.92,0.9,2.14,1.49,3.87,2.66c0.2-2.46,0.5-4.09,0.45-5.71c-0.32-11.28,6.19-18.18,15.01-23.67c10.76-6.71,22.72-5.85,34.49-5.14
+                                                        c10.87,0.65,21.01,4.46,30.97,8.77c14.39,6.23,27.13,15.04,39.49,24.49c1.93,1.48,3.61,1.46,5.62,0.26
+                                                        c7.68-4.6,15.61-8.56,24.31-11.04c10.04-2.87,20.24-3.4,30.44-2.29c11.95,1.31,21.81,12.56,23.49,23.11
+                                                        c1.95,12.28,1.15,24.27-1.86,36.23c-0.07,0.27-0.11,0.55-0.17,0.82c-1.01,4.73-0.71,5.03,3.95,5.74
+                                                        c8.88,1.36,17.63,3.59,25.46,7.96c8.81,4.92,11.43,13.13,5.03,21.77c-5.43,7.33-13.13,11.72-20.99,15.84
+                                                        c-10.28,5.39-21.26,8.88-32.6,11.11c-8.92,1.76-17.94,3.06-26.93,4.46c-14.66,2.28-29.41,0.98-44.11,0.87
+                                                        c-5.56-0.04-10.58,1.15-15.74,2.93c-8.78,3.03-17.63,5.97-26.63,8.24c-9.08,2.29-18.33,4.08-27.6,5.45
+                                                        c-11.82,1.74-23.79,2.17-35.69,1.12c-7-0.62-14.15-1.37-20.47-4.97c-4.38-2.5-8.19-5.54-8.7-11.18c-0.06-0.62-1.46-1.67-2.16-1.6
+                                                        c-4.72,0.44-9.42,1.13-14.13,1.74c-2.02,0.26-4.05,0.58-6.08,0.72c-4.55,0.31-9.11,0.77-13.66,0.74
+                                                        c-7.16-0.06-14.35-0.13-21.47-0.85c-6.45-0.66-12.84-2.1-19.21-3.37c-10.2-2.04-19.87-5.63-28.86-10.83
+                                                        c-8.97-5.19-17.47-11.28-21.65-21.07c-3.4-7.98-3.38-16.36,2.51-23.7c5.63-7.02,12.98-11.71,21.29-14.81
+                                                        c6.6-2.46,13.4-4.4,20.12-6.55C146,131,148,131,150,130z"/>
+                                <path class="cloud2" d="M350,100c-2.17-2.61-3.74-4.76-5.57-6.64c-5-5.14-6.11-19.07-0.79-25.33c3.61-4.26,7.8-7.72,12.84-10.12
+                                                        c9.81-4.68,20.01-7.68,30.89-9.06c8.44-1.07,16.83-1.18,25.07-0.13c12.64,1.61,24.73,5.32,34.28,14.59
+                                                        c0.92,0.9,2.14,1.49,3.87,2.66c0.2-2.46,0.5-4.09,0.45-5.71c-0.32-11.28,6.19-18.18,15.01-23.67c10.76-6.71,22.72-5.85,34.49-5.14
+                                                        c10.87,0.65,21.01,4.46,30.97,8.77c14.39,6.23,27.13,15.04,39.49,24.49c1.93,1.48,3.61,1.46,5.62,0.26
+                                                        c7.68-4.6,15.61-8.56,24.31-11.04c10.04-2.87,20.24-3.4,30.44-2.29c11.95,1.31,21.81,12.56,23.49,23.11
+                                                        c1.95,12.28,1.15,24.27-1.86,36.23c-0.07,0.27-0.11,0.55-0.17,0.82c-1.01,4.73-0.71,5.03,3.95,5.74
+                                                        c8.88,1.36,17.63,3.59,25.46,7.96c8.81,4.92,11.43,13.13,5.03,21.77c-5.43,7.33-13.13,11.72-20.99,15.84
+                                                        c-10.28,5.39-21.26,8.88-32.6,11.11c-8.92,1.76-17.94,3.06-26.93,4.46c-14.66,2.28-29.41,0.98-44.11,0.87
+                                                        c-5.56-0.04-10.58,1.15-15.74,2.93c-8.78,3.03-17.63,5.97-26.63,8.24c-9.08,2.29-18.33,4.08-27.6,5.45
+                                                        c-11.82,1.74-23.79,2.17-35.69,1.12c-7-0.62-14.15-1.37-20.47-4.97c-4.38-2.5-8.19-5.54-8.7-11.18c-0.06-0.62-1.46-1.67-2.16-1.6
+                                                        c-4.72,0.44-9.42,1.13-14.13,1.74c-2.02,0.26-4.05,0.58-6.08,0.72c-4.55,0.31-9.11,0.77-13.66,0.74
+                                                        c-7.16-0.06-14.35-0.13-21.47-0.85c-6.45-0.66-12.84-2.1-19.21-3.37c-10.2-2.04-19.87-5.63-28.86-10.83
+                                                        c-8.97-5.19-17.47-11.28-21.65-21.07c-3.4-7.98-3.38-16.36,2.51-23.7c5.63-7.02,12.98-11.71,21.29-14.81
+                                                        c6.6-2.46,13.4-4.4,20.12-6.55C346,101,348,101,350,100z"/>
+                            </svg>
+                        </div>
+                    </div>
+                </div>
+                <button id="docButton">Vis dokumentasjon</button>
+                <br/>
+                <div id="doc">
+                    <h2>Dokumentasjon</h2>
+                    <h3>Bruk av CSS-grid og Flexbox-layout</h3>
+                    <p>
+                        For å strukturere side-elementene mine valgte jeg å bruke Flexbox-layout, da dette er noe jeg var kjent 
+                        med fra før og synes er lett og oversiktlig å bruke. Jeg benyttet derimot ingen CSS-grid, hovedsaklig fordi jeg følte Flexbox dekket mitt behov 
+                        og CSS-grid er ukjent for meg slik at jeg i utganspunktet ikke hadde noen klare tanker for hvordan det skulle brukes, slik jeg hadde med Flexbox.
+                        <br/> 
+                        Alle elementene er lagt inn i en div kalt "wrapper", og deretter inndelt i underelementene: "main", "aside", "header" og "footer", for å lettere
+                        plassere de ulike elementene. Ved bruk av CSS-attributtene "display: flex" og "flex-flow: row wrap" på "wrapper"-diven, legger elementene seg ved siden av hverandre. 
+                        Videre satte jeg attributtet "width" til verdier oppgitt som prosent for å justere størrelsene på elementene i forhold til vindustørrelse fremfor et gitt antall 
+                        pikseler slik at nettsiden ble mer responsiv ved justering av vindustørrelse.
+                        Her satte jeg "header" og "footer" til 100 % bredde, "aside" til 20 % og "main" til 75 %. Dersom nettsidens vindu endrer størrelse til smalere
+                        enn 800 piksler, blir "flex-flow" satt til "column wrap" for at "aside" og "main" skal legges under hverandre fremfor ved siden av hverandre, da dette passer 
+                        bedre til et smalere vindu.
+                    </p>
+                    <h3>Bruk av HTML Canvas og SVG</h3>
+                    <h4>HTML Canvas</h4>
+                    <p>
+                        Til HTML Canvas har jeg brukt JavaScript for å både tegne og oppdatere canvaset. Jeg laget flere funksjoner for å tegne de ulike elementene i bildet, og kaller 
+                        på disse i en annen "move"-funksjon som blant annet oppdaterer x- og y-koordinatene til elementene og tegner elementene på deres nye posisjoner. Ved bruk av flere "addEventListener"-
+                        funksjoner sjekkes det om man holder over eller trykker på canvaset. I tillegg har jeg en "setInterval"-funksjon satt til 10 ms som sjekker verdien til boolean-variabelen "mouseHover", 
+                        og evt kaller på move-funksjonen dersom "mouseHover" er "true". 
+                    </p>
+                    <h4>SVG i HTML</h4>
+                    <p>
+                        For å animere SVG-bildet benyttet jeg DOM-programmering. Først opprettet jeg alle elementene rett inn i HTML-koden og brukte videre en blanding av vanlig JavaScript og jQuery til å flytte på og
+                        oppdatere elementene. I likhet med fremgangsmåten jeg brukte i HTML Canvas har jeg til SVG definert ulike funksjoner for å "tegne" elementene – her brukes jQuery
+                        til å oppdatere blant annet elementenes posisjon og farge – og kaller på disse funksjonene i en annen "move"-funksjon. Denne "move"-funksjonen
+                        endrer i tillegg x- og y-koordinatene til "sky"-elementene og "sol/måne"-elementet. Også her har jeg en "setInterval"-funksjon satt til 10 ms for å sjekke om den skal kjøre 
+                        "move"-funksjonen og eventuelt kjører denne. <br/> Valget av bruk av DOM-programmering var mer et underbevisst valg, da dette ble en naturlig løsning etter jeg allerede hadde programmert 
+                        canvas-bildet. I hovedsak prøvde jeg å gjøre det på mest mulig lik måte, kun fordi jeg allerede hadde funnet i løsning og ville spare meg for ekstra arbeid med å sette meg inn i andre metoder. Bruk av
+                        JavaScript og jQuery ble dermed et ganske naturlig valg.
+                    </p>
+                    <h3>Bruk av jQuery</h3>
+                    <p>
+                        Jeg har som nevt benyttet jQuery til å oppdatere attributtene til SVG-elementene (for eksempel farge eller x-/y-koordinater). I tillegg brukes jQuery til å kjøre funksjoner dersom det 
+                        trykkes på "sol/måne"-elementet eller noen av fjell-elementene, samt sette boolean-variabelen som sier ifra om animasjonen skal kjøre eller ikke, "mouseHoverSVG", til "true" eller "false" 
+                        avhenging av om man holder over SVG-bildet eller ikke. Dokumentasjonsknappen blir også behandlet av jQuery-kode når denne blir trykket på. Her gjorde jQuery det veldig lett å hente frem
+                        de ulike elementene og behandle deres tilhørende funksjoner.
+
+                    </p>
+                    <h3>Cross-browser-testing</h3>
+                    <p>
+                        Ved cross-browser-testing har jeg benyttet nettleserene Google Chrome og Microsoft Edge. Under hele utviklingsprosessen har jeg benyttet Google Chrome til å kjøre nettsiden, slik at 
+                        denne nettleseren ble regelmessig testet. Litt underveis i utviklingen begynte jeg også å teste om koden kjørte som den skulle i Microsoft Egde og byttet deretter litt mellom de to nettleserene.
+                        På denne måten ble regelmessige manuelle cross-browser-tester gjennomført. Hovedsaklig sjekket jeg om dokumentasjonsknappen og animasjonene/interaktiviteten i de to bildene fungerte som de 
+                        skulle i både Chrome og Edge, noe de hele tiden gjorde.  
+                    </p>
+                    <h3>De viktigste/nyttigste informasjonskildene jeg har brukt</h3>
+                    <p>
+                        Den mest brukte kilden jeg har benyttet meg av er <a class="links" href="https://www.w3schools.com/">W3Schools</a>. Denne har jeg brukt til å friske opp og lære funksjonalitet og egenskaper 
+                        til alle de benyttede språkene. I tillegg har jeg selvfølgelig vært innom mange tråder på <a class="links" href="https://stackoverflow.com/">Stack Overflow</a> hver gang jeg har støtt på
+                        et problem, der jeg har tatt med meg noen kodelinjer her og der. Videre har jeg oppdaget <a class="links" href="https://developer.mozilla.org/ ">MDN</a> som en veldig lærerik kilde der 
+                        jeg fant flere eksempler og løsninger som gikk litt videre enn W3Schools sin basisopplæring.
+                    </p>
+                </div>
+            </main>
+
+            <footer class="footer">
+                <hr/>
+                <p id="tm">ArtsyPants&trade;</p>
+            </footer>
+        </div>
+        
+        <script>
+            let canvas = document.getElementById("myCanvas");
+            let ctx = canvas.getContext("2d");
+            let svg = document.getElementById("mySVG");
+            let outsideSVG = document.getElementById("outsideSVG");
+            let stars = document.getElementById("starsSVG");      
+            
+            //Some booleans
+            let mouseHover = false;
+            let isSun = true;
+            let isMoon = false;
+            let moveSunOrMoon = false;
+            
+            //colors that will change back and forth
+            let mountainColor1 = "#5a5a63";
+            let mountainColor2 = "#9b9ba8";
+            let mountainColor3 = "#5a5a63";
+
+
+            //Canvas element coding
+
+            //Background 
+            function drawBackground(color) {
+                ctx.beginPath();
+                ctx.rect(0, 0, 500, 300);
+                ctx.strokeStyle = color;
+                ctx.fillStyle = color;
+                ctx.fill();
+                ctx.stroke();
+            }
+
+            //General mountain shape
+            function drawMountain(X, Y, color) {
+                ctx.rotate(0.75);
+                ctx.beginPath();
+                ctx.rect(X, Y, 400, 400);
+                ctx.strokeStyle = color;
+                ctx.fillStyle = color;
+                ctx.fill();
+                ctx.stroke();
+                ctx.rotate(-0.75);
+            }
+
+            //Sun 
+            function drawSun(X, Y) {
+                ctx.beginPath();
+                ctx.arc(X, Y, 50, 0, 2 * Math.PI);
+                ctx.strokeStyle = "#fcfaac";
+                ctx.fillStyle = "#fcfaac";
+                ctx.shadowBlur = 20;
+                ctx.shadowColor = "#fcfaac";
+                ctx.stroke();
+                ctx.fill();
+                ctx.shadowBlur = 0;
+                ctx.shadowColor = "transparent";
+            }
+
+            // Moon (same as sun but different color)
+            function drawMoon(X, Y) {
+                ctx.beginPath();
+                ctx.arc(X, Y, 50, 0, 2 * Math.PI);
+                ctx.strokeStyle = "#dee2ff";
+                ctx.fillStyle = "#dee2ff";
+                ctx.shadowBlur = 20;
+                ctx.shadowColor = "#dee2ff";
+                ctx.stroke();
+                ctx.fill();
+                ctx.shadowBlur = 0;
+                ctx.shadowColor = "transparent";
+            }
+
+            //Array that will be filled with random positions for placement of stars
+            let starPositions = [];
+
+            //For loop that fills the array with positions for the stars
+            for (let i = 0; i < 20; i++) {
+                starPositions[i] = [Math.random()*(canvas.width), Math.random()*(canvas.height)];
+            }
+
+            //Function to draw the stars
+            function drawStars() {
+                for (let i = 0; i < 20; i++) {
+                    ctx.beginPath();
+                    ctx.arc(starPositions[i][0], starPositions[i][1], 1, 0, 2 * Math.PI);
+                    ctx.strokeStyle = "white";
+                    ctx.fillStyle = "white";
+                    ctx.shadowBlur = 4;
+                    ctx.shadowColor = "white";
+                    ctx.stroke();
+                    ctx.fill();
+                    ctx.shadowBlur = 0;
+                    ctx.shadowColor = "transparent";
+                }
+            }
+
+            //coordinates of the three clouds
+            let X0 = 30;
+            let Y0 = 90;
+
+            let X1 = 150;
+            let Y1 = 130;
+
+            let X2 = 350;
+            let Y2 = 100;
+
+            //coordinates of the sun/moon element
+            let XSM = 15;
+            let YSM = 15;
+                
+            // draw cloud shape
+            function drawCloud(X, Y, color) {
+
+                ctx.beginPath();
+                ctx.moveTo(X, Y);
+                ctx.bezierCurveTo(X - 95, Y + 20, X - 30, Y + 90, X + 70, Y + 70);
+                ctx.bezierCurveTo(X + 65, Y + 95, X + 140, Y + 90, X + 185, Y + 70);
+                ctx.bezierCurveTo(X + 280, Y + 80, X + 350, Y + 25, X + 270, Y + 15);
+                ctx.bezierCurveTo(X + 290, Y - 60, X + 230, Y - 50, X + 200, Y - 30);
+                ctx.bezierCurveTo(X + 140, Y - 80, X + 85, Y - 65, X + 90, Y - 30);
+                ctx.bezierCurveTo(X + 60, Y - 65, X - 40, Y - 40, X, Y);
+                ctx.closePath();
+                ctx.fillStyle = color;
+                ctx.strokeStyle = "lavender";
+                ctx.stroke();
+                ctx.fill();
+            }
+
+            //draw the inital canvas drawing
+            drawBackground("lavender");
+            drawMountain(150, 100, mountainColor1);
+            drawMountain(300, -180, mountainColor2);
+            drawMountain(450, -150, mountainColor3);
+            drawSun(15, 15);
+            drawCloud(X0, Y0, "white");
+            drawCloud(X1, Y1, "#faf2ff");
+            drawCloud(X2, Y2, "white");
+
+            //function to move clouds and sun/moon which also draws the whole canvas a new
+            function moveClouds() {
+                //updates the coordinates of the clouds                
+                if (X0 != 700) {
+                    X0 += 1;
+                }
+                else {
+                    X0 = -300;
+                }
+                if (X1 != 700) {
+                    X1 += 2;
+                }
+                else {
+                    X1 = -300;
+                }
+                if (X2 != 700) {
+                    X2 += 1;
+                }
+                else {
+                    X2 = -300;
+                }
+
+                //checks if the sun/moon should move (if it has been clicked) and moves it if true
+                if (moveSunOrMoon) {
+                    if (YSM == 14) {
+                        //if the animation of moving sun/moon is finished, boolean is set to false such that it won't move until clicked again
+                        moveSunOrMoon = false;
+                        XSM = 15;
+                        YSM = 15;
+                    }
+                    if (YSM >= 500) {
+                        if (isSun) {
+                            isSun = false;
+                            isMoon = true;
+                        } else {
+                            isSun = true;
+                            isMoon = false;
+                        }
+                        XSM = 0;
+                        YSM = 0;
+                    }else {
+                        XSM += 1;
+                        YSM += 1;
+                    }
+
+                }
+
+                //if the sun is up different backgrounds are set depending on the sun's position. Also draws the sun
+                if (isSun) {
+                    if (YSM >= 350) {
+                        drawBackground("#3a2f45");
+                        drawStars();
+                    } else if (YSM >= 150) {
+                        drawBackground("#dac1e3");
+                    } else {
+                        drawBackground("lavender");
+                    }
+                    drawSun(XSM, XSM);
+                }
+                //same as with the sun only with moon here
+                if (isMoon) {
+                    if (YSM >= 350) {
+                        drawBackground("lavender");
+                    } else if (YSM >= 150) {
+                        drawBackground("#dac1e3");
+                    } else {
+                        drawBackground("#3a2f45");
+                        drawStars();
+                    }
+                    drawMoon(XSM, XSM);
+                }
+                //draw the mountains and the clouds in their new positions
+                drawMountain(150, 100, mountainColor1);
+                drawMountain(300, -180, mountainColor2);
+                drawMountain(450, -150, mountainColor3);
+                drawCloud(X0, Y0, "white");
+                drawCloud(X1, Y1, "#faf2ff");
+                drawCloud(X2, Y2, "white");
+
+            }
+
+            //Creates paths to use when checking whether or not mountains have been clicked on
+            const mountain1 = new Path2D();
+            const mountain2 = new Path2D();
+            const mountain3 = new Path2D();
+
+            //the paths of the mountains
+            mountain1.moveTo(0, 300);
+            mountain1.lineTo(0, 210);
+            mountain1.lineTo(50,170);
+            mountain1.lineTo(150, 290);
+            mountain1.lineTo(134, 300);
+            mountain1.closePath();
+
+            mountain2.moveTo(135, 300);
+            mountain2.lineTo(400, 80);
+            mountain2.lineTo(500, 215);
+            mountain2.lineTo(500, 250);
+            mountain2.lineTo(420, 190);
+            mountain2.lineTo(335, 300);
+            mountain2.closePath();
+
+            mountain3.moveTo(340, 300);
+            mountain3.lineTo(420, 195);
+            mountain3.lineTo(550, 300);
+            mountain3.closePath();
+
+            //event listener which handles clicks on the canvas
+            canvas.addEventListener('click', (e) => {
+
+                //path of where the sun/moon is
+                const circle = new Path2D();
+                circle.arc(XSM, YSM, 50, 0, 2 * Math.PI);
+
+                //using isPointInPath to check if the clicked area intersects with any of the interactive elements
+                const isPointInPathCircle = ctx.isPointInPath(circle, e.offsetX, e.offsetY);
+                const isPointInPathM1 = ctx.isPointInPath(mountain1, e.offsetX, e.offsetY);
+                const isPointInPathM2 = ctx.isPointInPath(mountain2, e.offsetX, e.offsetY);
+                const isPointInPathM3 = ctx.isPointInPath(mountain3, e.offsetX, e.offsetY);
+
+                //if sun/moon has been clicked, changes the boolean to true
+                if (isPointInPathCircle) {
+                    moveSunOrMoon = true;
+                    
+                }
+                //changes color of the mountains if mountain is clicked
+                else if (isPointInPathM1) {
+                    if (mountainColor1 == "#5a5a63") {
+                        mountainColor1 = "#4a5e4b";
+                    } else {
+                        mountainColor1 = "#5a5a63";
+                    }
+                }else if (isPointInPathM2) {
+                    if (mountainColor2 == "#9b9ba8") {
+                        mountainColor2 = "#859e87";
+                    } else {
+                        mountainColor2 = "#9b9ba8";
+                    }
+                } else if (isPointInPathM3) {
+                    if (mountainColor3 == "#5a5a63") {
+                        mountainColor3 = "#4a5e4b";
+                    } else {
+                        mountainColor3 = "#5a5a63";
+                    }
+                }
+            });
+
+            //checks if mouse is hovering over a clickable part of the canvas to change cursor to and from pointer
+            canvas.addEventListener('mousemove', (e) => {
+                const circle = new Path2D();
+                circle.arc(XSM, YSM, 50, 0, 2 * Math.PI);
+                const isPointInPathCircle = ctx.isPointInPath(circle, e.offsetX, e.offsetY);
+                const isPointInPathM1 = ctx.isPointInPath(mountain1, e.offsetX, e.offsetY);
+                const isPointInPathM2 = ctx.isPointInPath(mountain2, e.offsetX, e.offsetY);
+                const isPointInPathM3 = ctx.isPointInPath(mountain3, e.offsetX, e.offsetY);
+
+                if (isPointInPathCircle || isPointInPathM1 || isPointInPathM2 || isPointInPathM3) {
+                    canvas.style.cursor = "pointer";                    
+                } else {
+                    canvas.style.cursor = "default"; 
+                }
+            });
+
+            //interval that keeps checking if the canvas should be in animation and starts the animation if true
+            setInterval(()=>{
+                    if (mouseHover) {
+                        moveClouds();
+                    }
+                }, 10);
+
+            //if mouse is over canvas mouseHover is set to true
+            canvas.addEventListener('mouseover', ()=> {
+                mouseHover = true;
+            });
+
+            //if mouse moves out of canvas mouseHover is sat to false
+            canvas.addEventListener('mouseout', () => {
+                mouseHover = false;
+            });
+
+            //SVG element coding
+
+            //same booleans as before, but for svg
+            let mouseHoverSVG = false;
+            let isSunSVG = true;
+            let isMoonSVG = false;
+            let moveSunOrMoonSVG = false;
+
+            //same as with canvas: positions for the clouds, but for svg
+            let XS0 = 30;
+            let YS0 = 90;
+
+            let XS1 = 150;
+            let YS1 = 130;
+
+            let XS2 = 350;
+            let YS2 = 100;
+
+            //same as with canvas: positions for the sun/moon, but for svg
+            let XSSM = 15;
+            let YSSM = 15;
+
+            //general cloud path
+            function drawCloudSVG(X, Y) {
+                d = `M${X},${Y}c-2.17-2.61-3.74-4.76-5.57-6.64c-5-5.14-6.11-19.07-0.79-25.33c3.61-4.26,7.8-7.72,12.84-10.12
+                        c9.81-4.68,20.01-7.68,30.89-9.06c8.44-1.07,16.83-1.18,25.07-0.13c12.64,1.61,24.73,5.32,34.28,14.59
+                        c0.92,0.9,2.14,1.49,3.87,2.66c0.2-2.46,0.5-4.09,0.45-5.71c-0.32-11.28,6.19-18.18,15.01-23.67c10.76-6.71,22.72-5.85,34.49-5.14
+                        c10.87,0.65,21.01,4.46,30.97,8.77c14.39,6.23,27.13,15.04,39.49,24.49c1.93,1.48,3.61,1.46,5.62,0.26
+                        c7.68-4.6,15.61-8.56,24.31-11.04c10.04-2.87,20.24-3.4,30.44-2.29c11.95,1.31,21.81,12.56,23.49,23.11
+                        c1.95,12.28,1.15,24.27-1.86,36.23c-0.07,0.27-0.11,0.55-0.17,0.82c-1.01,4.73-0.71,5.03,3.95,5.74
+                        c8.88,1.36,17.63,3.59,25.46,7.96c8.81,4.92,11.43,13.13,5.03,21.77c-5.43,7.33-13.13,11.72-20.99,15.84
+                        c-10.28,5.39-21.26,8.88-32.6,11.11c-8.92,1.76-17.94,3.06-26.93,4.46c-14.66,2.28-29.41,0.98-44.11,0.87
+                        c-5.56-0.04-10.58,1.15-15.74,2.93c-8.78,3.03-17.63,5.97-26.63,8.24c-9.08,2.29-18.33,4.08-27.6,5.45
+                        c-11.82,1.74-23.79,2.17-35.69,1.12c-7-0.62-14.15-1.37-20.47-4.97c-4.38-2.5-8.19-5.54-8.7-11.18c-0.06-0.62-1.46-1.67-2.16-1.6
+                        c-4.72,0.44-9.42,1.13-14.13,1.74c-2.02,0.26-4.05,0.58-6.08,0.72c-4.55,0.31-9.11,0.77-13.66,0.74
+                        c-7.16-0.06-14.35-0.13-21.47-0.85c-6.45-0.66-12.84-2.1-19.21-3.37c-10.2-2.04-19.87-5.63-28.86-10.83
+                        c-8.97-5.19-17.47-11.28-21.65-21.07c-3.4-7.98-3.38-16.36,2.51-23.7c5.63-7.02,12.98-11.71,21.29-14.81
+                        c6.6-2.46,13.4-4.4,20.12-6.55C${X-4},${Y+1},${X-2},${Y+1},${X},${Y}z`;
+                return d;
+            }
+
+            //updates the sun/moon circle with the attributes attached to sun
+            function drawSunSVG(X, Y) {
+                $("#sunMoonSVG").attr("fill","#fcfaac");
+                $("#sunMoonSVG").attr("stroke", "#fcfaac");
+                $("#sunMoonSVG").attr("cx", `${X}`);
+                $("#sunMoonSVG").attr("cy", `${Y}`);
+                $("#sunMoonSVG").css("filter", "url(#sunshine)");
+            }
+
+            //updates the sun/moon circle with the attributes attached to moon
+            function drawMoonSVG(X, Y) {
+                $("#sunMoonSVG").attr("fill","#dee2ff");
+                $("#sunMoonSVG").attr("stroke", "#dee2ff");
+                $("#sunMoonSVG").attr("cx", `${X}`);
+                $("#sunMoonSVG").attr("cy", `${Y}`);
+                $("#sunMoonSVG").css("filter", "url(#moonshine)");
+            }
+
+            //creates star elements with the same positions as used for canvas and appends them to the svg element inside the main svg element
+            function drawStarsSVG() {
+                for (let i = 0; i < 20; i++) {
+                    var circle = document.createElementNS("http://www.w3.org/2000/svg", 'circle');
+                    circle.setAttribute("class", "star");
+                    circle.setAttribute("cx", starPositions[i][0]);
+                    circle.setAttribute("cy", starPositions[i][1]);
+                    circle.setAttribute("r", "1");
+                    circle.setAttribute("stroke", "white");
+                    circle.setAttribute("strokeWidth", 1);
+                    circle.setAttribute("fill", "white");
+                    circle.setAttribute("style", "filter:url(#glow);");
+                    circle.setAttribute("visibility", "hidden");
+                    starsSVG.appendChild(circle);
+                }
+            }
+            drawStarsSVG();
+
+            //almost the same as the canvas function but uses jQuery to update the attributes of the existing svg elements
+            function moveCloudsSVG() {
+                if (XS0 != 700) {
+                    XS0 += 1;
+                }
+                else {
+                    XS0 = -300;
+                }
+                if (XS1 != 700) {
+                    XS1 += 2;
+                }
+                else {
+                    XS1 = -300;
+                }
+                if (XS2 != 700) {
+                    XS2 += 1;
+                }
+                else {
+                    XS2 = -300;
+                }
+
+                if (moveSunOrMoonSVG) {
+                    if (YSSM == 14) {
+                        moveSunOrMoonSVG = false;
+                        XSSM = 15;
+                        YSSM = 15;
+                    }
+                    if (YSSM >= 500) {
+                        if (isSunSVG) {
+                            isSunSVG = false;
+                            isMoonSVG = true;
+                        } else {
+                            isSunSVG = true;
+                            isMoonSVG = false;
+                        }
+                        XSSM = 0;
+                        YSSM = 0;
+                    }else {
+                        XSSM += 1;
+                        YSSM += 1;
+                    }
+
+                }
+
+                if (isSunSVG) {
+                    if (YSSM >= 350) {
+                        $("#backgroundSVG").attr("fill", "#3a2f45");
+                        $(".star").attr("visibility", "visible");
+                    } else if(YSSM >= 150) {
+                        $("#backgroundSVG").attr("fill", "#dac1e3");
+                    }else {
+                        $("#backgroundSVG").attr("fill", "lavender");
+                    }
+                    drawSunSVG(XSSM, YSSM);
+                }
+                if (isMoonSVG) {
+                    if (YSSM >= 350) {
+                        $("#backgroundSVG").attr("fill", "lavender");
+                    } else if(YSSM >= 150) {
+                        $("#backgroundSVG").attr("fill", "#dac1e3");
+                        $(".star").attr("visibility", "hidden");
+                    }else {
+                        $("#backgroundSVG").attr("fill", "#3a2f45");
+                    }
+                    drawMoonSVG(XSSM, YSSM);
+                }
+
+                //updtes the clouds' positions
+                $(".cloud0").attr("d", `${drawCloudSVG(XS0, YS0)}`);
+                $(".cloud1").attr("d", `${drawCloudSVG(XS1, YS1)}`);
+                $(".cloud2").attr("d", `${drawCloudSVG(XS2, YS2)}`);
+            }
+
+            $(document).ready(function(){
+                //updates the mouseHOverSVG boolean if svg is being hovered over or not
+                $(svg).hover(function() {
+                    mouseHoverSVG = true;
+                }, function(){
+                    mouseHoverSVG = false;
+                });
+
+                //handles click on the sun/moon
+                $("#sunMoonSVG").click(function() {
+                    moveSunOrMoonSVG = true;
+                });
+
+                //handles click on the mountains and changes the colors
+                $("#mountain1").click(function(){
+                    if ($(this).attr("fill") == "#5a5a63") {
+                        $(this).attr("fill", "#4a5e4b");
+                    } else {
+                        $(this).attr("fill", "#5a5a63");
+                    }
+                });
+                $("#mountain2").click(function(){
+                    if ($(this).attr("fill") == "#9b9ba8") {
+                        $(this).attr("fill", "#859e87");
+                    } else {
+                        $(this).attr("fill", "#9b9ba8");
+                    }
+                });
+                $("#mountain3").click(function(){
+                    if ($(this).attr("fill") == "#5a5a63") {
+                        $(this).attr("fill", "#4a5e4b");
+                    } else {
+                        $(this).attr("fill", "#5a5a63");
+                    }
+                });
+
+                //handles click on the button for showing/hiding the documentation
+                $("#docButton").click(function() {
+                    if ($(this).html()=="Vis dokumentasjon") {
+                        $("#doc").css("display", "block");
+                        $(this).html("Skjul dokumentasjon");
+                    }
+                    else {
+                        $("#doc").css("display", "none");
+                        $(this).html("Vis dokumentasjon");
+                    }
+                });
+            });
+
+            //same as with canvas: interval that keeps checking if the svg should be in animation or not, and starts the animation if true
+            setInterval(()=>{
+                if (mouseHoverSVG) {
+                    moveCloudsSVG();
+                }
+            }, 10);
+
+        </script>
+    </body>
+</html>

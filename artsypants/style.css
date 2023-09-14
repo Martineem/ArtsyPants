@@ -1,0 +1,197 @@
+body {
+    font-family: Tahoma, sans-serif;
+    line-height: 1.6;
+    background-image: url("background.png");
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-position: center;
+    margin-top: 0px;
+    margin-left: 0px;
+    margin-right: 0px;
+}
+.wrapper, .artWrapper {
+    display: flex;
+    flex-flow: row wrap;
+    text-align: center;
+    justify-content: center;
+    gap: 15px;
+    scroll-margin-top: 0px;
+}
+
+.header, .footer {
+    width: 100%;
+}
+
+.header {
+    background-image: url("headerNoText.png");
+    background-size: 100%;
+    position: sticky;
+    top: 0px;
+    z-index: 999;
+    max-height: 200px;
+    height: auto;
+    border: 5px solid white;
+    margin-left: 0px;
+    margin-top: 0px;
+}
+
+#headerImg {
+    max-height: 200px;
+    height: auto;
+    max-width: 100%;
+    border-left: 5px solid white;
+    border-right: 5px solid white;
+
+}
+
+.aside {
+    width: 20%;
+    position: relative;
+    left: 0;
+    margin-top: 30px;
+    margin-left: 25px;
+    text-align: left;
+    margin-bottom: 30px;
+}
+
+#asideDiv{
+    background-color: rgb(255, 255, 255, 0.4);
+    padding: 0.5px;
+    padding-left: 15px;
+    padding-right: 15px;
+    border-color: rgb(255, 255, 255, 0.4);
+    border-radius: 20px;
+}
+
+.main {
+    width: 77%;
+    z-index: 10;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.footer {
+    text-align: left;
+}
+
+#tm {
+    margin-left: 25px;
+}
+
+h1, h2, h3, h4, p {
+    color: #3a2f45;
+}
+
+p {
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    font-size: 17px;
+}
+
+.links {
+    color: #9970a8;
+}
+
+hr {
+   border: 1px solid white;
+}
+
+#myCanvas, #mySVG {
+    border: 5px solid white;
+    margin-bottom: 10px;
+}
+
+#mySVG {
+    overflow: hidden;
+}
+
+#docButton {
+    background-color: lavender;
+    font-size: 20px;
+    color: #3a2f45;
+    border: 3px solid white;
+    border-radius: 10px;
+    padding: 5px;
+    padding-left: 10px;
+    padding-right: 10px;
+}
+
+#docButton:hover {
+    box-shadow: 5px 5px #3a2f45;
+    cursor: pointer;
+}
+#docButton:active {
+    transform: translate(5px, 5px);
+    box-shadow: none;
+}
+
+#doc {
+    max-width: 900px;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 20px;
+    text-align: left;
+    display: none;
+    background-color: rgb(255, 255, 255, 0.4);
+    padding: 0.5px;
+    padding-left: 15px;
+    padding-right: 15px;
+    border-color: rgb(255, 255, 255, 0.4);
+    border-radius: 20px;
+
+
+}
+
+@media (max-width: 1400px) {
+    .main {
+        width: 60%;
+    }
+    .aside {
+        width: 25%;
+    }
+
+}
+
+@media (max-width: 1260px) {
+    #headerImg {
+        border-left: none;
+        border-right: none;
+    
+    }
+
+}
+
+@media (max-width: 800px) {
+    .wrapper {
+        flex-flow: column wrap;
+        justify-content: flex-start;
+        justify-items: flex-start;
+        
+    }
+
+    .aside {
+        position: relative;
+        top: 0px;
+        margin-top: 20px;
+        width: 90%;
+        margin-right: auto;
+        margin-left: auto;
+    }
+
+    .main {
+        width: 90%;
+    }
+
+    #headerImg {
+        height: auto;
+        max-width: 100%;
+        border-left: none;
+        border-right: none;
+    
+    }
+
+    #myCanvas, #mySVG {
+        max-width: 100%;
+
+    }
+
+}
